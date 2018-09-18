@@ -61,7 +61,6 @@
         <activity
             android:name=".Event.EventMenuActivity"
             android:theme="@style/AppTheme.NoActionBar2" />
-        <activity android:name=".Event.TourFragment" />
         <activity
             android:name=".Fix.FixSubmitActivity"
             android:theme="@style/AppTheme.NoActionBar2" />
@@ -80,8 +79,6 @@
             android:theme="@style/AppTheme.NoActionBar2" />
         <activity android:name=".Trip.Slide_3_Activity"
             android:theme="@style/AppTheme.NoActionBar2" />
-        <activity android:name=".Shop.Fragment_3F" />
-        <activity android:name=".Shop.Fragment_4F" />
         <activity android:name=".Trip.Slide_4_Activity"
             android:theme="@style/AppTheme.NoActionBar2" />
     </application>
