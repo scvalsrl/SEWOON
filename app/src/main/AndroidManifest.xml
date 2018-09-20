@@ -40,6 +40,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -49,7 +50,8 @@
         <activity
             android:name=".Trip.TripMenuActivity"
             android:theme="@style/AppTheme.NoActionBar2" />
-        <activity android:name=".Trip.Slide_1_Activity"
+        <activity
+            android:name=".Trip.Slide_1_Activity"
             android:theme="@style/AppTheme.NoActionBar2" />
         <activity android:name=".InforMenuActivity" />
         <activity
@@ -75,11 +77,14 @@
             android:theme="@style/AppTheme.NoActionBar2" />
         <activity android:name=".MyMenu.MyMenuActivity" />
         <activity android:name=".Fix.FixReplyActivity" />
-        <activity android:name=".Trip.Slide_2_Activity"
+        <activity
+            android:name=".Trip.Slide_2_Activity"
             android:theme="@style/AppTheme.NoActionBar2" />
-        <activity android:name=".Trip.Slide_3_Activity"
+        <activity
+            android:name=".Trip.Slide_3_Activity"
             android:theme="@style/AppTheme.NoActionBar2" />
-        <activity android:name=".Trip.Slide_4_Activity"
+        <activity
+            android:name=".Trip.Slide_4_Activity"
             android:theme="@style/AppTheme.NoActionBar2" />
     </application>
 

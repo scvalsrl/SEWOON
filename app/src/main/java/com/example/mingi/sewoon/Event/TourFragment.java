@@ -1,17 +1,30 @@
 package com.example.mingi.sewoon.Event;
 
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.example.mingi.sewoon.R;
-import com.example.mingi.sewoon.Shop.Shop;
-import com.example.mingi.sewoon.Shop.ShopListAdapter;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -29,30 +42,15 @@ public class TourFragment extends Fragment {
         return inflater.inflate(R.layout.activity_tour_fragment, container, false);
     }
 
-    private ListView shopListView;
-    private ShopListAdapter adapter;
-    private List<Shop> shopList;
+
 
     @Override
     public void onActivityCreated(Bundle b) {
         super.onActivityCreated(b);
 
-/*
-        ListView listView=(ListView) getView().findViewById(R.id.tourListView);
-        ArrayList<Shop> data=new ArrayList<>();
-        Shop lion=new Shop(R.drawable.lion,”Lion”);
-        Shop tiger=new Shop(R.drawable.tiger,”Tiger”);
-        Shop dog=new Shop(R.drawable.dog,”Dog”);
-        Shop cat=new Shop(R.drawable.cat,”Cat”);
-        data.add(lion);
-        data.add(tiger);
-        data.add(dog);
-        data.add(cat);
-        ListviewAdapter adapter=new ListviewAdapter(this,R.layout.Shop,data);
-        listView.setAdapter(adapter);
-*/
 
     }
+
 
 
 

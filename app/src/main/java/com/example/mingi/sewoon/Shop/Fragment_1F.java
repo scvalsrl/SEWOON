@@ -31,8 +31,8 @@ import java.util.List;
 public class Fragment_1F extends Fragment {
 
     public Fragment_1F() {
-        // Required empty public constructor
-    }
+            // Required empty public constructor
+        }
 
 
     @Override
