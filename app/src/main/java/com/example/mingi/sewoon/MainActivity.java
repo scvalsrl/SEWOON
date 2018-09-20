@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.mingi.sewoon.Event.EventMenuActivity;
 import com.example.mingi.sewoon.Fix.FixMenuActivity;
 import com.example.mingi.sewoon.Fix.FixSubmitActivity;
+import com.example.mingi.sewoon.Match.MatchMenuActivity;
 import com.example.mingi.sewoon.MyMenu.MyMenuActivity;
 import com.example.mingi.sewoon.Shop.Shop;
 import com.example.mingi.sewoon.Shop.ShopMenuActivity;
@@ -83,6 +84,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // new BackgroundTask().execute();
 
                 Intent intent = new Intent(MainActivity.this, ShopMenuActivity.class);
+                MainActivity.this.startActivity(intent);
+                // 화면전환 넣기 //
+
+
+            }
+        });
+
+        menu4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //
+                // new BackgroundTask().execute();
+
+                Intent intent = new Intent(MainActivity.this, MatchMenuActivity.class);
                 MainActivity.this.startActivity(intent);
                 // 화면전환 넣기 //
 

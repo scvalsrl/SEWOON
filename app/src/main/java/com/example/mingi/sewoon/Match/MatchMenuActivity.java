@@ -1,13 +1,12 @@
-package com.example.mingi.sewoon.Event;
+package com.example.mingi.sewoon.Match;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,10 +17,12 @@ import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
 
+import com.example.mingi.sewoon.Match.ViewPagerAdapter;
 import com.example.mingi.sewoon.R;
 import com.example.mingi.sewoon.Shop.Fragment_1F;
 
-public class EventMenuActivity extends AppCompatActivity {
+public class MatchMenuActivity extends AppCompatActivity {
+
     private String[] tabs;
     FragmentTabHost tabHost;
     ViewPagerAdapter pagerAdapter;
@@ -33,7 +34,7 @@ public class EventMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(getWindow().FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_event_menu);
+        setContentView(R.layout.activity_match_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -73,11 +74,9 @@ public class EventMenuActivity extends AppCompatActivity {
         });
 
 
-
         TextView temp = (TextView) tabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
-        tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).getBackground().setColorFilter(Color.rgb(185,167,146), PorterDuff.Mode.MULTIPLY);
+        tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).getBackground().setColorFilter(Color.rgb(185, 167, 146), PorterDuff.Mode.MULTIPLY);
         temp.setTextColor(Color.parseColor("#b9a792")); // 탭이 선택되어 있으면 FontColor를 검정색으로
-
 
 
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
@@ -90,9 +89,8 @@ public class EventMenuActivity extends AppCompatActivity {
                     if (i == tabHost.getCurrentTab()) {
                         tv.setTextColor(Color.parseColor("#b9a792")); // 탭이 선택되어 있으면 FontColor를 검정색으로
                         tv.setTypeface(tv.getTypeface(), Typeface.BOLD);
-                        tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).getBackground().setColorFilter(Color.rgb(185,167,146), PorterDuff.Mode.MULTIPLY);
-                    }
-                    else
+                        tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).getBackground().setColorFilter(Color.rgb(185, 167, 146), PorterDuff.Mode.MULTIPLY);
+                    } else
                         tv.setTextColor(Color.parseColor("#45555f")); // 선택되지 않은 탭은 하얀색으로.
                 }
             }
@@ -124,29 +122,21 @@ public class EventMenuActivity extends AppCompatActivity {
         }
         horizontalScrollView.scrollTo(newX, 0);
     }
+
     private void initializeTabs() {
-        tabs = new String[] { "투어", "행사", "교육" };
+        tabs = new String[]{"투어", "행사"};
     }
 
     private void setupTabHost() {
 
 
-        TabHost.TabSpec tabSpec1 = tabHost.newTabSpec(String.format("%sTab", tabs[0].replace(" ","").toLowerCase())); // 구분자
+        TabHost.TabSpec tabSpec1 = tabHost.newTabSpec(String.format("%sTab", tabs[0].replace(" ", "").toLowerCase())); // 구분자
         tabSpec1.setIndicator("투어"); // 탭 이름
         tabHost.addTab(tabSpec1, Fragment_1F.class, null);
-        TabHost.TabSpec tabSpec2 = tabHost.newTabSpec(String.format("%sTab", tabs[1].replace(" ","").toLowerCase())); // 구분자
+        TabHost.TabSpec tabSpec2 = tabHost.newTabSpec(String.format("%sTab", tabs[1].replace(" ", "").toLowerCase())); // 구분자
         tabSpec2.setIndicator("행사"); // 탭 이름
         tabHost.addTab(tabSpec2, Fragment_1F.class, null);
-        TabHost.TabSpec tabSpec3 = tabHost.newTabSpec(String.format("%sTab", tabs[2].replace(" ","").toLowerCase())); // 구분자
-        tabSpec3.setIndicator("교육"); // 탭 이름
-        tabHost.addTab(tabSpec3, Fragment_1F.class, null);
 
-        /*
-        for(int i=0; i<tabs.length; i++) {
-            tabHost.addTab(tabHost.newTabSpec(String.format("%sTab", tabs[i].replace(" ","").toLowerCase())).setIndicator(tabs[i]), MyFragment.class, null);
-
-        }
-        */
 
 
     }
@@ -174,3 +164,4 @@ public class EventMenuActivity extends AppCompatActivity {
     }
 
 }
+
