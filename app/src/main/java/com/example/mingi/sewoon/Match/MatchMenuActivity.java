@@ -124,17 +124,17 @@ public class MatchMenuActivity extends AppCompatActivity {
     }
 
     private void initializeTabs() {
-        tabs = new String[]{"투어", "행사"};
+        tabs = new String[]{"장인리스트", "기술중계"};
     }
 
     private void setupTabHost() {
 
 
         TabHost.TabSpec tabSpec1 = tabHost.newTabSpec(String.format("%sTab", tabs[0].replace(" ", "").toLowerCase())); // 구분자
-        tabSpec1.setIndicator("투어"); // 탭 이름
+        tabSpec1.setIndicator("장인리스트"); // 탭 이름
         tabHost.addTab(tabSpec1, Fragment_1F.class, null);
         TabHost.TabSpec tabSpec2 = tabHost.newTabSpec(String.format("%sTab", tabs[1].replace(" ", "").toLowerCase())); // 구분자
-        tabSpec2.setIndicator("행사"); // 탭 이름
+        tabSpec2.setIndicator("기술중계"); // 탭 이름
         tabHost.addTab(tabSpec2, Fragment_1F.class, null);
 
 
