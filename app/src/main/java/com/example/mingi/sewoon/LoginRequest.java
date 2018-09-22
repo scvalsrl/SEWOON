@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class LoginRequest extends StringRequest {
 
-    final static private String URL = "http://scvalsrl.cafe24.com/Login.php";
+    final static private String URL = "http://scvalsrl.cafe24.com/Login2.php";
 
     private Map<String, String> parameters;
 

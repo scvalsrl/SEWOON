@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.mingi.sewoon.Fix.FixSubmitActivity;
 
 
 import org.json.JSONException;
@@ -26,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
 
     String userID;
     String userPassword;
+    String check2;
+    private  AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, SplashActivity.class);
         startActivity(intent);
-
+        builder = new AlertDialog.Builder(LoginActivity.this);
 
         final EditText idText = (EditText) findViewById(R.id.idText);
         final EditText passwordText = (EditText) findViewById(R.id.passwordText);
@@ -46,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent registerIntent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
                 LoginActivity.this.startActivity(registerIntent);
             }
 
@@ -78,12 +81,14 @@ public class LoginActivity extends AppCompatActivity {
                                 Log.d("  로그인 상공 : ", "");
                                 userID = jsonResponse.getString("userID");
                                 userPassword = jsonResponse.getString("userPassword");
-
+                                check2 = jsonResponse.getString("check2");
                                 SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
                                 //auto의 loginId와 loginPwd에 값을 저장해 줍니다.
                                 SharedPreferences.Editor autoLogin = auto.edit();
                                 autoLogin.putString("userID", userID);
+                                autoLogin.putString("check2", check2);
                                 autoLogin.commit();
+                                Log.d("로그인", "아이디 : "+userID +"  "+ check2);
 
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                               //  intent.putExtra("userID", userID);
@@ -91,6 +96,11 @@ public class LoginActivity extends AppCompatActivity {
                                 LoginActivity.this.startActivity(intent);
                                 // 화면전환 넣기 //
                                 finish();
+                            }else{
+                                builder.setMessage(" 아이디 및 비밀번호를 확인해주세요. ")
+                                        .setNegativeButton("확인", null)
+                                        .create()
+                                        .show();
                             }
 
 

@@ -25,19 +25,20 @@
             android:orientation="vertical">
 
             <TextView
+                android:layout_marginTop="5dp"
                 android:id="@+id/shop_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumsquare"
                 android:text="이름"
                 android:textColor="#45555f"
-                android:textSize="21dp" />
+                android:textSize="19dp" />
 
             <TextView
                 android:id="@+id/shop_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/nanumsquare"
                 android:text="아이템"
                 android:textColor="#d0d0d0"

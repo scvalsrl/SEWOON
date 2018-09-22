@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.mingi.sewoon.LoginActivity;
 import com.example.mingi.sewoon.MainActivity;
 import com.example.mingi.sewoon.R;
 import com.example.mingi.sewoon.Shop.ShopMenuActivity;
@@ -38,6 +40,7 @@ public class FixDetail_Reply_Activity extends AppCompatActivity {
     String reply;
     TextView fix_title, fix_content, fix_category, fix_day;
     Button reply_btn;
+    private  AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,8 @@ public class FixDetail_Reply_Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        builder = new AlertDialog.Builder(FixDetail_Reply_Activity.this);
 
         fix_title = (TextView) findViewById(R.id.fix_title);
         fix_content = (TextView) findViewById(R.id.fix_content);
@@ -64,6 +69,9 @@ public class FixDetail_Reply_Activity extends AppCompatActivity {
         reply = intent.getStringExtra("reply");
         userID = intent.getStringExtra("userID");
 
+        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+        final String check2 = auto.getString("check2",null);
+
         fix_title.setText(title);
         fix_content.setText(content);
         fix_day.setText(day);
@@ -77,8 +85,15 @@ public class FixDetail_Reply_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(FixDetail_Reply_Activity.this, FixReplyActivity.class);
-                FixDetail_Reply_Activity.this.startActivity(intent);
+                if(check2.equals("일반회원")){
+                    builder.setMessage(" 장인회원만 답변 할 수 있습니다. ")
+                            .setNegativeButton("확인", null)
+                            .create()
+                            .show();
+                }else {
+                    Intent intent = new Intent(FixDetail_Reply_Activity.this, FixReplyActivity.class);
+                    FixDetail_Reply_Activity.this.startActivity(intent);
+                }
             }
         });
 

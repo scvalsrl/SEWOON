@@ -86,8 +86,10 @@
         <activity
             android:name=".Trip.Slide_4_Activity"
             android:theme="@style/AppTheme.NoActionBar2" />
-        <activity android:name=".Match.MatchMenuActivity"
+        <activity
+            android:name=".Match.MatchMenuActivity"
             android:theme="@style/AppTheme.NoActionBar2" />
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>
