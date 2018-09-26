@@ -72,7 +72,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="김민기"
-                        android:textColorHint="#CFD8DC"
+                        android:textColorHint="#000000"
                         android:background="@null"/>
                 </LinearLayout>
 
@@ -134,6 +134,7 @@
                >
 
                 <Button
+                    android:id="@+id/cencel"
                     android:layout_width="187dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -143,6 +144,7 @@
                     android:layout_marginRight="11dp"
                     android:text="취소"/>
                 <Button
+                    android:id="@+id/join"
                     android:layout_width="187dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

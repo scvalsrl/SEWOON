@@ -77,8 +77,10 @@ public class MatchMenuActivity extends AppCompatActivity {
         TextView temp = (TextView) tabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
         tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).getBackground().setColorFilter(Color.rgb(185, 167, 146), PorterDuff.Mode.MULTIPLY);
         temp.setTextColor(Color.parseColor("#b9a792")); // 탭이 선택되어 있으면 FontColor를 검정색으로
+        temp.setTextSize(16);
 
-
+        TextView temp2 = (TextView) tabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title);
+        temp2.setTextSize(16);
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) { // 탭 변경시 리스너

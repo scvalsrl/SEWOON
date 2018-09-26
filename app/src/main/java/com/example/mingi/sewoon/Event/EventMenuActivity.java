@@ -78,6 +78,11 @@ public class EventMenuActivity extends AppCompatActivity {
         tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).getBackground().setColorFilter(Color.rgb(185,167,146), PorterDuff.Mode.MULTIPLY);
         temp.setTextColor(Color.parseColor("#b9a792")); // 탭이 선택되어 있으면 FontColor를 검정색으로
 
+        TextView temp2 = (TextView) tabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title);
+        TextView temp3 = (TextView) tabHost.getTabWidget().getChildAt(2).findViewById(android.R.id.title);
+        temp.setTextSize(16);
+        temp2.setTextSize(16);
+        temp3.setTextSize(16);
 
 
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {

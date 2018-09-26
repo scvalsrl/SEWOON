@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.mingi.sewoon.Event.Event;
 import com.example.mingi.sewoon.Event.EventMenuActivity;
 import com.example.mingi.sewoon.Fix.FixMenuActivity;
 import com.example.mingi.sewoon.Fix.FixSubmitActivity;
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
 
 
         menu1.setOnClickListener(new View.OnClickListener() {
@@ -167,10 +169,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // 화면전환 넣기 //
 
         } else if (id == R.id.nav_fix) {
+            new BackgroundTask().execute();
 
         } else if (id == R.id.nav_matching) {
-
+            Intent intent = new Intent(MainActivity.this, MatchMenuActivity.class);
+            MainActivity.this.startActivity(intent);
         }else if (id == R.id.nav_event) {
+            Intent intent = new Intent(MainActivity.this, EventMenuActivity.class);
+            MainActivity.this.startActivity(intent);
 
         }else if (id == R.id.nav_logout) {
 

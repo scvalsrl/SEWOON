@@ -38,6 +38,7 @@ public class FixDetail_Reply_Activity extends AppCompatActivity {
 
     String image, title, content, category, day,userID;
     String reply;
+    String no;
     TextView fix_title, fix_content, fix_category, fix_day;
     Button reply_btn;
     private  AlertDialog.Builder builder;
@@ -60,7 +61,7 @@ public class FixDetail_Reply_Activity extends AppCompatActivity {
         fix_day = (TextView) findViewById(R.id.fix_day);
         reply_btn = (Button) findViewById(R.id.fix_reply_btn);
         Intent intent = getIntent();
-
+        no = intent.getStringExtra("no");
         image = intent.getStringExtra("image");
         title = intent.getStringExtra("title");
         content = intent.getStringExtra("content");
@@ -92,6 +93,8 @@ public class FixDetail_Reply_Activity extends AppCompatActivity {
                             .show();
                 }else {
                     Intent intent = new Intent(FixDetail_Reply_Activity.this, FixReplyActivity.class);
+                    intent.putExtra("ReUserID",userID);
+                    intent.putExtra("no",no);
                     FixDetail_Reply_Activity.this.startActivity(intent);
                 }
             }

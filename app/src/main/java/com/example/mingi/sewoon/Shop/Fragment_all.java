@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,12 +61,16 @@ public class Fragment_all extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                Log.d("김민기", "클릭됬다1" );
+
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
 
                     @Override
                     public void onResponse(String response) {
+                        Log.d("김민기", "클릭됬다2" );
                         try {
+                            Log.d("김민기", "클릭됬다3" );
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
 
@@ -78,8 +83,12 @@ public class Fragment_all extends Fragment {
                             location2 = jsonResponse.getString("location2");
                             photo = jsonResponse.getString("photo");
                             if (success) {
+                                Log.d("김민기", "클릭됬다4" );
+                                Log.d("김민기", "클릭됬다4" + name);
+                                Log.d("김민기", "클릭됬다4"+ category );
+                                Log.d("김민기", "클릭됬다4" + location );
 
-                                    Intent intent = new Intent(getActivity().getApplicationContext(), ShopDetailActivity.class);
+                                    Intent intent = new Intent(getActivity(), ShopDetailActivity.class);
                                     intent.putExtra("name", name);
                                     intent.putExtra("location", location);
                                     intent.putExtra("item", item);
@@ -87,7 +96,7 @@ public class Fragment_all extends Fragment {
                                     intent.putExtra("phone", phone);
                                     intent.putExtra("location2", location2);
                                     intent.putExtra("photo", photo);
-                                    getActivity().getApplicationContext().startActivity(intent);
+                                    getActivity().startActivity(intent);
 
                             }
                         } catch (Exception e) {

@@ -79,7 +79,7 @@ public class Fragment_2F extends Fragment {
                             photo = jsonResponse.getString("photo");
                             if (success) {
 
-                                Intent intent = new Intent(getActivity().getApplicationContext(), ShopDetailActivity.class);
+                                Intent intent = new Intent(getActivity(), ShopDetailActivity.class);
                                 intent.putExtra("name", name);
                                 intent.putExtra("location", location);
                                 intent.putExtra("item", item);
@@ -87,7 +87,7 @@ public class Fragment_2F extends Fragment {
                                 intent.putExtra("phone", phone);
                                 intent.putExtra("location2", location2);
                                 intent.putExtra("photo", photo);
-                                getActivity().getApplicationContext().startActivity(intent);
+                                getActivity().startActivity(intent);
 
                             }
                         } catch (Exception e) {

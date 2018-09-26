@@ -21,7 +21,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        android:authorities="com.example.mingi.management.provider"
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.mingi.sewoon"
@@ -53,7 +52,6 @@
         <activity
             android:name=".Trip.Slide_1_Activity"
             android:theme="@style/AppTheme.NoActionBar2" />
-        <activity android:name=".InforMenuActivity" />
         <activity
             android:name=".Shop.ShopMenuActivity"
             android:theme="@style/AppTheme.NoActionBar2" />
@@ -75,8 +73,11 @@
         <activity
             android:name=".Fix.FixDetail_NoReply_Activity"
             android:theme="@style/AppTheme.NoActionBar2" />
-        <activity android:name=".MyMenu.MyMenuActivity" />
-        <activity android:name=".Fix.FixReplyActivity" />
+        <activity android:name=".MyMenu.MyMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar2" />
+        <activity
+            android:name=".Fix.FixReplyActivity"
+            android:theme="@style/AppTheme.NoActionBar2" />
         <activity
             android:name=".Trip.Slide_2_Activity"
             android:theme="@style/AppTheme.NoActionBar2" />
@@ -89,7 +90,13 @@
         <activity
             android:name=".Match.MatchMenuActivity"
             android:theme="@style/AppTheme.NoActionBar2" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar2" />
+        <activity
+            android:name=".MyMenu.FromListActivity"
+            android:theme="@style/AppTheme.NoActionBar2" />
+        <activity android:name=".MyMenu.FromDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar2" />
     </application>
 
 </manifest>

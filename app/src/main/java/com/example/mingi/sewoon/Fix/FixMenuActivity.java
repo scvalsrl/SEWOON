@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -85,7 +86,7 @@ public class FixMenuActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                final int num = fixlist.get(i).getNo();
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
 
                     @Override
@@ -103,13 +104,13 @@ public class FixMenuActivity extends AppCompatActivity {
                             day = jsonResponse.getString("day");
                             reply = jsonResponse.getInt("reply");
                             userID = jsonResponse.getString("userID");
-
+                           int no = jsonResponse.getInt("no");
                             if (success) {
 
                                 // 답변이 없을시
                                 if(reply==0){
                                     Intent intent = new Intent(FixMenuActivity.this, FixDetail_Reply_Activity.class);
-
+                                    intent.putExtra("no",Integer.toString(no));
                                     intent.putExtra("image", image);
                                     intent.putExtra("title", title);
                                     intent.putExtra("content", content);
@@ -121,6 +122,7 @@ public class FixMenuActivity extends AppCompatActivity {
                                     // 화면전환 넣기 //
                                 }else{
                                     Intent intent = new Intent(FixMenuActivity.this, FixDetail_NoReply_Activity.class);
+
 
                                     intent.putExtra("image", image);
                                     intent.putExtra("title", title);

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -34,15 +35,19 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.mingi.sewoon.MainActivity;
 import com.example.mingi.sewoon.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -544,7 +549,7 @@ public class FixSubmitActivity extends AppCompatActivity {
                                                         .setPositiveButton("확인", null)
                                                         .create()
                                                         .show();
-
+                                                new BackgroundTask().execute();
 
                                             }
 
@@ -598,6 +603,62 @@ public class FixSubmitActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
 
+
+    }
+
+    class BackgroundTask extends AsyncTask<Void, Void, String> {
+
+        String target;
+
+        @Override
+        protected void onPreExecute() {
+            target = "http://scvalsrl.cafe24.com/FixList.php";
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                URL url = new URL(target);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String temp;
+                StringBuilder stringBuilder = new StringBuilder();
+                while ((temp = bufferedReader.readLine()) != null) {
+
+                    stringBuilder.append(temp + "\n");
+
+                }
+
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+
+                return stringBuilder.toString().trim();
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+
+            }
+            return null;
+        }
+
+        @Override
+        public void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+
+        }
+
+        public void onPostExecute(String result) {
+
+            Intent intent = new Intent(FixSubmitActivity.this, FixMenuActivity.class);
+            intent.putExtra("userList", result);
+            FixSubmitActivity.this.startActivity(intent);
+            finish();
+            overridePendingTransition(0, 0);
+
+        }
 
     }
 
